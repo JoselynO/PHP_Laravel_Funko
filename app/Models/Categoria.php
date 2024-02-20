@@ -8,4 +8,25 @@ use Illuminate\Database\Eloquent\Model;
 class Categoria extends Model
 {
     use HasFactory;
+
+    protected $table = 'categorias';
+
+    public static function getIdPorNombre($nombre){
+        $categoria = self::where('nombre', $nombre)->first();
+        return $categoria ? $categoria->id : null;
+    }
+
+    public static function getNombrePorId($id){
+        $categoria = self::find($id);
+        return $categoria ? $categoria->nombre : null;
+    }
+
+    public static function getNombres(){
+        return self::pluck('nombre');
+    }
+
+    public function funkos(){
+        return $this->hasMany(Funko::class);
+    }
+
 }
