@@ -25,6 +25,22 @@ class Categoria extends Model
         return self::pluck('nombre');
     }
 
+    public function actualizarFunkosSinCategoria($id)
+    {
+        $funkos = Funko::where('categoria_id', $id)->get();
+
+        if ($funkos->count() > 0) {
+            foreach ($funkos as $funko) {
+                $funko->categoria_id = 4;
+                $funko->save();
+            }
+        }
+    }
+
+    public function scopeBuscar($query, $buscar){
+        return $query->whereRaw('LOWER(nombre) LIKE ?', ["%" . strtolower($buscar) . "%"]);
+    }
+
     public function funkos(){
         return $this->hasMany(Funko::class);
     }

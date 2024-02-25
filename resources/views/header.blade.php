@@ -26,6 +26,16 @@
                         <a class="nav-link" href="{{ route('funkos.create') }}">Nuevo Funko</a>
                     </li>
                 @endif
+
+                @if(auth()->check() && auth()->user()->role == "admin")
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Categorias</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{{ route('categorias.index') }}">Categorias</a></li>
+                        <li><a class="dropdown-item" href="{{ route('categorias.create') }}">Nueva Categoria</a></li>
+                    </ul>
+                </li>
+                @endif
             </ul>
             <ul class="navbar-nav ml-auto mr-5">
                 <li class="nav-item">
