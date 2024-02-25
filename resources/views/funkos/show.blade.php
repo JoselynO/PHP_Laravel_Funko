@@ -15,11 +15,11 @@
 @endsection
 
 @section('content')
-
+    <h1 class="text-center mt-5" style="color: #ff4081; font-weight: bolder">¡Detalles de Funko!</h1>
 <div class="container-fluid" style="margin-top: 2cm; margin-bottom: 4cm">
     <div class="card mx-auto my-5 col-md-6 " >
         <div class="card-header text-center">
-            <h1>Detalles del Funko</h1>
+            <h1>{{$funko->nombre}}</h1>
         </div>
         <div class="card-body">
             <div class="row">

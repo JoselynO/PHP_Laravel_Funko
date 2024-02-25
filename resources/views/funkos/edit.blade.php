@@ -19,7 +19,7 @@
     <h1 class="text-center mt-5" style="color: #ff4081; font-weight: bolder">¡Actualiza tu Funko!</h1>
     @if ($errors->any())
         <div class="alert alert-danger alert-dismissible">
-            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <a href="#" class="close" data-dismiss="alert" aria-label="close"> &times; </a>
             <ul>
                 @foreach ($errors->all() as $error)
                     <li>{{ $error }}</li>

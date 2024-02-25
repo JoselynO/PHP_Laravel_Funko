@@ -34,7 +34,7 @@
                     </span>
                 </li>
             </ul>
-            <form action="{{ route('funkos.index') }}" class="mt-3 form-inline" method="get">
+            <form action="{{ route('funkos.index') }}" class="form-inline mr-2" method="get">
                 <input type="text" class="form-control" id="search" name="search" placeholder="Nombre del Funko">
                 <button class="btn btn-primary" type="submit">Buscar</button>
             </form>

@@ -98,11 +98,11 @@
     @else
         <p class='lead'><em>No se ha encontrado la informaciones de funkos.</em></p>
     @endif
-    <div class="pagination-container" style="margin-bottom: 4cm">
+    <div class="pagination-container" style="margin-bottom: 2cm">
         {{ $funkos->links('pagination::bootstrap-4') }}
     </div>
     @if(auth()->check() && auth()->user()->role == "admin")
-    <div class="d-flex justify-content-center mt-4 " style="margin-bottom: 3cm">
+    <div class="d-flex justify-content-center" style="margin-bottom: 3cm">
         <a class="btn btn-success"  href={{ route('funkos.create') }}>Nuevo Producto</a>
     </div>
     @endif

@@ -22,13 +22,6 @@ class Funko extends Model{
         'isDeleted',
     ];
 
-    protected static function boot(){
-        parent::boot();
-
-        static::creating(function ($funko) {
-            $funko->uuid = Str::uuid();
-        });
-    }
 
     public function scopeSearch($query, $search){
         return $query->whereRaw('LOWER(nombre) LIKE ?', ["%" . strtolower($search) . "%"])

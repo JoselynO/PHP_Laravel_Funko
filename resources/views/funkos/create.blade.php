@@ -32,7 +32,7 @@
 <div class="container-fluid py-5 md-5" >
     <div class="row">
         <div class="col-md-6 offset-md-3 ">
-            <form action="{{ route("funkos.store") }}" method="post" enctype="multipart/form-data" id="create" style="margin-bottom: 2cm">
+            <form action="{{ route("funkos.store") }}" method="post"  id="create" style="margin-bottom: 2cm">
              @csrf
                 <div class="form-group">
                     <label for="name">Nombre:</label>
@@ -41,12 +41,12 @@
                 <div class="form-group">
                     <label for="precio">Precio:</label>
                     <input class="form-control" id="precio" name="precio" type="number" required
-                      min="0.0" step="0.01"  value="0">
+                      min="1.0" step="0.01"  value="0">
                 </div>
                 <div class="form-group">
                     <label for="cantidad">Cantidad:</label>
                     <input class="form-control" id="cantidad" name="cantidad" type="number" required
-                      min="0" value="0">
+                      min="1" value="0">
                 </div>
 
                 <div class="form-group">
