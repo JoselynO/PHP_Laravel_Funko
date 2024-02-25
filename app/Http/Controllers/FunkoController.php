@@ -32,7 +32,7 @@ class FunkoController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nombre' => 'min:2|max:100|required',
+            'nombre' => 'min:2|max:100|required|unique:funkos,nombre',
             'precio' => 'required|regex:/^\d{1,13}(\.\d{1,2})?$/',
             'cantidad' => 'required|integer',
             'categoria' => 'required|exists:categorias,id',
@@ -59,7 +59,7 @@ class FunkoController extends Controller
 
     public function update(Request $request, $id){
         $request->validate([
-            'nombre' => 'min:2|max:100|required',
+            'nombre' => 'min:2|max:100|required|unique:funkos,nombre,' . $id,
             'precio' => 'required|regex: /^\d{1,13}(\.\d{1,2})?$/',
             'cantidad' => 'required|integer',
             'categoria' => 'required|exists:categorias,id',

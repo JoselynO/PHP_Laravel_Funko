@@ -58,4 +58,22 @@ class CategoriasController extends Controller
         }
     }
 
+    public function destroy($id){
+        try {
+            $categoria = Categoria::find($id);
+            $funkosAsociados = $categoria->funkos()->count();
+            if ($funkosAsociados > 0) {
+                flash('No se puede eliminar la categoría porque tiene Funkos asociados.')->error()->important();
+                return redirect()->route('categorias.index');
+            }
+            $categoria->delete();
+            flash('Categoría eliminada con éxito.')->success()->important();
+            return redirect()->route('categorias.index');
+        } catch(Exception $e){
+            flash('Error al eliminar la categoría: ' . $e->getMessage())->error()->important();
+            return redirect()->back();
+        }
+    }
+
+
 }

@@ -2,10 +2,12 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
 class Funko extends Model{
+    use HasFactory;
     public static string $IMAGE_DEFAULT = 'https://m.media-amazon.com/images/I/917Mf8yTjEL._AC_UF894,1000_QL80_.jpg';
     protected $table = 'funkos';
 

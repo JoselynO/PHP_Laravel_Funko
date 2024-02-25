@@ -17,7 +17,7 @@
 @section('content')
 
     <h1 class="text-center mt-5 mb-5" style="font-weight: bolder">¿Cual es tu Categoria?</h1>
-    @if(count($categorias) > 1)
+    @if(count($categorias) > 0)
         <table class="table table-dark mt-5">
             <thead>
             <tr>
@@ -29,7 +29,6 @@
             </thead>
             <tbody>
             @foreach ($categorias as $categoria)
-                @if($categoria->id != 5)
                     <tr>
                         <td class="text-center">{{$categoria->nombre}}</td>
                         @if(auth()->check() && auth()->user()->role == 'admin')
@@ -45,7 +44,6 @@
                                     </form>
                                 </div>
                             </td>
-                        @endif
                     </tr>
                 @endif
             @endforeach
